@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
           appBarTheme: AppBarTheme(
               backgroundColor: AppConsts.mainColor(),
               titleTextStyle:
-                  const TextStyle(fontWeight: FontWeight.bold, fontSize: 24)),
+                  const TextStyle(fontWeight: FontWeight.bold, fontSize: 32)),
           useMaterial3: true,
           navigationBarTheme: NavigationBarThemeData(
             backgroundColor: AppConsts.mainColor(),
