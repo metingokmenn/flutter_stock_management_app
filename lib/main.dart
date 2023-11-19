@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gokfen_stock_app/constants/app_constants.dart';
-import 'package:gokfen_stock_app/screens/main_screen.dart';
+import 'package:gokfen_stock_app/screens/login_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,12 +19,12 @@ class MyApp extends StatelessWidget {
           appBarTheme: AppBarTheme(
               backgroundColor: AppConsts.mainColor(),
               titleTextStyle:
-                  const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                  const TextStyle(fontWeight: FontWeight.bold, fontSize: 24)),
           useMaterial3: true,
           navigationBarTheme: NavigationBarThemeData(
             backgroundColor: AppConsts.mainColor(),
           )),
-      home: const MainScreen(),
+      home: const LoginPage(),
     );
   }
 }

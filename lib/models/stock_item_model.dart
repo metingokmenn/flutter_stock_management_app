@@ -1,16 +1,41 @@
+import 'dart:convert';
+
 class StockItem {
-  String? id;
+  int? id;
+  String? brand;
+  String? code;
   String? name;
-  double? quantity;
-  bool availability;
+  int? quantity;
+  String? unit;
 
-  StockItem(
-      {required this.id,
-      required this.name,
-      required this.quantity,
-      required this.availability});
+  StockItem({
+    this.id,
+    this.brand,
+    this.code,
+    this.name,
+    this.quantity,
+    this.unit,
+  });
 
-  void setAvailability() {
-    availability = quantity! <= 0 ? false : true;
-  }
+  factory StockItem.fromJson(String str) => StockItem.fromMap(json.decode(str));
+
+  String toJson() => json.encode(toMap());
+
+  factory StockItem.fromMap(Map<String, dynamic> json) => StockItem(
+        id: json["id"],
+        brand: json["brand"],
+        code: json["code"],
+        name: json["name"],
+        quantity: json["quantity"],
+        unit: json["unit"],
+      );
+
+  Map<String, dynamic> toMap() => {
+        "id": id,
+        "brand": brand,
+        "code": code,
+        "name": name,
+        "quantity": quantity,
+        "unit": unit,
+      };
 }

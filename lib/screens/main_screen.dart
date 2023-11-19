@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gokfen_stock_app/widgets/navigation_bar.dart';
 
 import 'package:gokfen_stock_app/widgets/grid_widget.dart';
 
@@ -14,41 +15,23 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Main Screen'),
-      ),
-      body: const MainGrid(),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: NavigationBarTheme.of(context).backgroundColor,
-        selectedIconTheme: const IconThemeData(color: Colors.white),
-        selectedFontSize: 16,
-        onTap: (value) {
-          changeIndex();
-          debugPrint(currentIndex.toString());
-        },
-        currentIndex: currentIndex,
-        items: const [
-          BottomNavigationBarItem(
-            label: 'Anasayfa',
-            icon: Icon(
-              Icons.house,
-            ),
+    return WillPopScope(
+      onWillPop: () {
+        return Future.value(false);
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text(
+            'Anasayfa',
           ),
-          BottomNavigationBarItem(
-            label: 'Profil',
-            icon: Icon(Icons.person_2),
-          )
-        ],
+        ),
+        body: const MainGrid(),
+        bottomNavigationBar: CustomNavigationBar(
+          backgroundColor: NavigationBarTheme.of(context).backgroundColor,
+          selectedIconTheme: const IconThemeData(color: Colors.white),
+          selectedFontSize: 16,
+        ),
       ),
     );
-  }
-
-  int changeIndex() {
-    setState(() {
-      currentIndex == 0 ? currentIndex += 1 : currentIndex -= 1;
-    });
-
-    return currentIndex;
   }
 }
