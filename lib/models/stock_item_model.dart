@@ -1,41 +1,35 @@
 import 'dart:convert';
 
 class StockItem {
-  int? id;
-  String? brand;
-  String? code;
-  String? name;
-  int? quantity;
-  String? unit;
+  String? sno;
+  String? marka;
+  String? kod;
+  String? urun;
+  String? miktar;
+  String? birim;
 
-  StockItem({
-    this.id,
-    this.brand,
-    this.code,
-    this.name,
-    this.quantity,
-    this.unit,
-  });
+  StockItem(
+      {this.sno, this.marka, this.kod, this.urun, this.miktar, this.birim});
 
   factory StockItem.fromJson(String str) => StockItem.fromMap(json.decode(str));
 
   String toJson() => json.encode(toMap());
 
   factory StockItem.fromMap(Map<String, dynamic> json) => StockItem(
-        id: json["id"],
-        brand: json["brand"],
-        code: json["code"],
-        name: json["name"],
-        quantity: json["quantity"],
-        unit: json["unit"],
+        sno: json["sno"],
+        marka: json["marka"],
+        kod: json["kod"],
+        urun: json["urun"],
+        miktar: json["miktar"],
+        birim: json["birim"],
       );
 
   Map<String, dynamic> toMap() => {
-        "id": id,
-        "brand": brand,
-        "code": code,
-        "name": name,
-        "quantity": quantity,
-        "unit": unit,
+        "sno": sno,
+        "marka": marka,
+        "kod": kod,
+        "urun": urun,
+        "miktar": miktar,
+        "birim": birim,
       };
 }

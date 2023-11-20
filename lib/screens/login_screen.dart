@@ -62,7 +62,7 @@ class LoginPage extends StatelessWidget {
   }
 
   void login(BuildContext context) {
-    Navigator.of(context)
-        .push(CupertinoPageRoute(builder: (context) => const MainScreen()));
+    Navigator.of(context).pushReplacement(
+        CupertinoPageRoute(builder: (context) => const MainScreen()));
   }
 }

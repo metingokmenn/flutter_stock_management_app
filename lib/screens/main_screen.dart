@@ -15,22 +15,17 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () {
-        return Future.value(false);
-      },
-      child: Scaffold(
-        appBar: AppBar(
-          title: const Text(
-            'Anasayfa',
-          ),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          'Anasayfa',
         ),
-        body: const MainGrid(),
-        bottomNavigationBar: CustomNavigationBar(
-          backgroundColor: NavigationBarTheme.of(context).backgroundColor,
-          selectedIconTheme: const IconThemeData(color: Colors.white),
-          selectedFontSize: 16,
-        ),
+      ),
+      body: MainGrid(),
+      bottomNavigationBar: CustomNavigationBar(
+        backgroundColor: NavigationBarTheme.of(context).backgroundColor,
+        selectedIconTheme: const IconThemeData(color: Colors.white),
+        selectedFontSize: 16,
       ),
     );
   }

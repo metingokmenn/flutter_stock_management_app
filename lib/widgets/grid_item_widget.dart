@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class GridItem extends StatelessWidget {
-  const GridItem({super.key});
-
+  GridItem({super.key, required this.textString});
+  String textString;
   @override
   Widget build(BuildContext context) {
     bool availability = true;
@@ -11,8 +11,8 @@ class GridItem extends StatelessWidget {
         availability ? Icons.circle : Icons.circle_outlined,
         color: Colors.greenAccent,
       ),
-      child: const Text(
-        "Tryout",
+      child:  Text(
+        textString,
         textAlign: TextAlign.center,
       ),
     );
